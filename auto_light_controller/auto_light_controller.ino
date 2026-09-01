@@ -42,8 +42,10 @@ void loop() {
   Serial.print(now.second(), DEC);
   Serial.println();
 
-  int hour = now.hour(), desired_angle;
-  if (0 <= hour && hour <= 7) {
+  int hour = now.hour();
+  int minute = now.minute();
+  int desired_angle;
+  if ((23 <= hour && 30 <= minute) || (hour <= 7)) {
     desired_angle = OFF;
   } else {
     desired_angle = ON;
